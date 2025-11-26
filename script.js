@@ -1,7 +1,7 @@
 const API_BASE =
   window.VID2TUNE_API_BASE ||
   window.__VID2TUNE_API__ ||
-  "http://localhost:4000";
+  "https://vid2tunebe.vercel.app/";
 
 const videoInput = document.getElementById("videoInput");
 const audioInput = document.getElementById("audioInput");
