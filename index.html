@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#c41e3a",
+              accent: "#a1162d",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Vid2Tune - Konversi Video ke Audio & Audio ke Teks</title>
+  </head>
+  <body class="m-0 p-0 bg-gray-50 text-gray-800">
+    <!-- HEADER -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-3">
+          <div
+            class="w-10 h-10 bg-[#c41e3a] rounded-lg flex items-center justify-center text-white font-bold text-xl"
+          >
+            V2
+          </div>
+          <h1 class="text-2xl font-bold text-[#c41e3a]">Vid2Tune</h1>
+        </div>
+        <p class="">by Kelompok 4 | Sistem Multimedia</p>
+      </div>
+    </header>
+    <!-- HEADER END -->
+
+    <!-- HERO SECTION -->
+    <section class="bg-linear-to-b from-white to-gray-100 py-16 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Konversi Video ke Audio<br />& Audio ke Teks<br />
+          <span class="text-[#c41e3a]">dalam Sekejap</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+          Platform berbasis web gratis, tanpa instalasi, responsif di semua
+          perangkat. Ubah MP4 jadi MP3 atau rekaman suara jadi teks dengan
+          mudah.
+        </p>
+      </div>
+    </section>
+    <!-- HERO SECTION END -->
+
+    <!-- MAIN FITUR 2 BAGIAN -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Video → Audio -->
+        <div
+          class="bg-white rounded-2xl shadow-lg p-10 hover:shadow-xl transition-shadow border border-gray-100"
+        >
+          <div class="flex items-center mb-6">
+            <div
+              class="w-14 h-14 bg-[#c41e3a] text-white rounded-full flex items-center justify-center text-2xl font-bold"
+            >
+              1
+            </div>
+            <h3 class="text-2xl font-semibold ml-4">Video → Audio</h3>
+          </div>
+          <p class="text-gray-600 mb-8">
+            Upload video (MP4, MOV, dll) dan dapatkan file audio MP3 berkualitas
+            tinggi dalam hitungan detik.
+          </p>
+          <label class="block">
+            <input
+              type="file"
+              accept="video/*"
+              class="hidden"
+              id="videoInput"
+            />
+            <div
+              class="border-2 border-dashed border-primary rounded-xl p-12 text-center cursor-pointer hover:bg-primary/5 transition"
+              data-dropzone="video"
+            >
+              <svg
+                class="w-16 h-16 mx-auto text-primary mb-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                />
+              </svg>
+              <p class="text-primary font-medium">
+                Klik atau seret video ke sini
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Maksimal 500MB • MP4, MOV, WebM
+              </p>
+            </div>
+          </label>
+          <button
+            class="mt-6 w-full bg-primary text-white py-4 rounded-lg font-semibold hover:bg-accent transition disabled:opacity-50"
+            data-action="convert-video"
+            disabled
+          >
+            Konversi ke MP3
+          </button>
+          <p id="videoStatus" class="text-sm text-gray-500 mt-4"></p>
+        </div>
+        <!-- Video → Audio End -->
+
+        <!-- Audio → Teks -->
+        <div
+          class="bg-white rounded-2xl shadow-lg p-10 hover:shadow-xl transition-shadow border border-gray-100"
+        >
+          <div class="flex items-center mb-6">
+            <div
+              class="w-14 h-14 bg-[#c41e3a] text-white rounded-full flex items-center justify-center text-2xl font-bold"
+            >
+              2
+            </div>
+            <h3 class="text-2xl font-semibold ml-4">Audio → Teks</h3>
+          </div>
+          <p class="text-gray-600 mb-8">
+            Upload file audio atau rekam langsung dari mikrofon, lalu dapatkan
+            transkrip teks yang akurat.
+          </p>
+
+          <div class="space-y-4">
+            <label class="block">
+              <input
+                type="file"
+                accept="audio/*"
+                class="hidden"
+                id="audioInput"
+              />
+              <div
+                class="border-2 border-dashed border-[#c41e3a] rounded-xl p-10 text-center cursor-pointer hover:bg-[#c41e3a]/5 transition"
+                data-dropzone="audio"
+              >
+                <svg
+                  class="w-16 h-16 mx-auto text-[#c41e3a] mb-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+                  />
+                </svg>
+                <p class="text-[#c41e3a] font-medium">Upload Audio</p>
+                <p class="text-sm text-gray-500 mt-2">
+                  MP3, WAV, M4A • Maks 30 menit
+                </p>
+              </div>
+            </label>
+
+            <div class="text-center text-sm text-gray-500">atau</div>
+
+            <button
+              class="w-full border-2 border-[#c41e3a] text-[#c41e3a] py-4 rounded-lg font-semibold hover:bg-[#c41e3a] hover:text-white transition flex items-center justify-center space-x-2"
+              data-action="record-audio"
+            >
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
+                />
+              </svg>
+              <span>Rekam Suara Langsung</span>
+            </button>
+          </div>
+
+          <button
+            class="mt-6 w-full bg-[#c41e3a] text-white py-4 rounded-lg font-semibold hover:bg-accent transition disabled:opacity-50"
+            data-action="convert-audio"
+            disabled
+          >
+            Ubah ke Teks
+          </button>
+          <p id="audioStatus" class="text-sm text-gray-500 mt-4"></p>
+
+          <div
+            id="transcriptResult"
+            class="hidden mt-6 bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-2 text-left"
+          >
+            <p class="text-xs tracking-wide uppercase text-gray-500">
+              Hasil Transkrip
+            </p>
+            <p
+              id="transcriptText"
+              class="text-gray-800 whitespace-pre-wrap"
+            ></p>
+          </div>
+        </div>
+        <!-- Audio → Teks End -->
+      </div>
+    </section>
+    <!-- MAIN FITUR 2 BAGIAN END -->
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12 px-6 text-center">
+      <h4 class="text-2xl font-bold mb-4">Vid2Tune</h4>
+      <p class="text-gray-400 mb-6">
+        Tugas Besar Mata Kuliah Sistem Multimedia
+      </p>
+      <div class="text-sm space-y-1">
+        <p><strong>Anggota Kelompok:</strong></p>
+        <p>Muhammad Fadhlurrahman - 103062400091</p>
+        <p>Muhammad Zhaqi Iliassyah - 103062430010</p>
+        <p>Syafiq Umar Ashfani - 103062400084</p>
+        <p class="mt-4">
+          Dosen Pengampu: <strong>Siti Zahrotul Fazriyah, S.Kom, M.Kom</strong>
+        </p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <script>
+      window.VID2TUNE_API_BASE = "https://vid2tune-backend.onrender.com";
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
